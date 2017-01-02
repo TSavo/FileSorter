@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	files, _ := ioutil.ReadDir("z:\\Videos")
+	files, _ := ioutil.ReadDir("G:\\Videos")
 	targets := make([]string, len(files))
 	for index, f := range files {
     	if(f.IsDir()){
@@ -16,7 +16,7 @@ func main() {
     		index++
         }
     }
-	files, _ = ioutil.ReadDir("z:\\Videos\\Seeding")
+	files, _ = ioutil.ReadDir("g:\\TV Shows")
 	outer: for _, f := range files {
 		if(f.IsDir() || f.Name() == "Seeding"){
 			continue;
@@ -24,7 +24,7 @@ func main() {
 		for _, targ := range targets {
 			if(strings.Contains(strings.ToLower(strings.Replace(f.Name(),"."," ", -1)), strings.ToLower(targ))){
 				fmt.Println(f.Name() + " => " + targ)
-				os.Rename("z:\\Videos\\Seeding\\" + f.Name(), "z:\\Videos\\" + targ + "\\" + f.Name())
+				os.Rename("G:\\TV Shows\\" + f.Name(), "G:\\Videos\\" + targ + "\\" + f.Name())
 				continue outer;
 			}
 		}
